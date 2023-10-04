@@ -36,6 +36,7 @@ jobs:
       # 打包release
       - name: Build with Gradle
         run: bash ./gradlew assembleRelease
+
       # 创建release
       - name: Create Release
         id: create_release
@@ -49,7 +50,8 @@ jobs:
           prerelease: false
       # 上传至release的资源
       - name: Upload release binaries
-        uses: alexellis/upload-assets@0.2.2
+        # uses: alexellis/upload-assets@0.2.2
+        uses: alexellis/upload-assets@0.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
